@@ -1,10 +1,11 @@
-import { api } from "../../config/apiConfig";
+import {  createApiInstance } from "../../config/apiConfig";
 import { CREATE_PAYMENT_FAILURE, CREATE_PAYMENT_REQUEST, UPDATE_PAYMENT_FAILURE, UPDATE_PAYMENT_REQUEST, UPDATE_PAYMENT_SUCCESS } from "./Constant"
 
 export const createOrderPayment = (orderId) => async (dispatch) => {
     dispatch({ type: CREATE_PAYMENT_REQUEST });
     
     try {
+        const api = await createApiInstance();
         // Make sure this api.post points to the correct API endpoint
         const { data } = await api.post(`/api/payments/${orderId}`, {}); 
 
@@ -31,6 +32,7 @@ export const updateOrderpayment =(reqData)=>async(dispatch)=>{
 
     dispatch({type:UPDATE_PAYMENT_REQUEST});
     try {
+        const api = await createApiInstance();
         const {data} = await api.get(`/api/payment?payment_id=${reqData.paymentId}&order_id=${reqData.orderId}`);
 
        console.log(data)

@@ -1,5 +1,4 @@
-import axios from "axios";
-import { api, API_BASE_URL } from "../../config/apiConfig";
+import {    createApiInstance } from "../../config/apiConfig";
 import {
   CLEAR_ERROR,
   FIND_PRODUCT_BY_CATEGORY_FAIL,
@@ -28,6 +27,7 @@ export const findproducts = (reqData) => async (dispatch) => {
   } = reqData;
  
   try {
+    const api = await createApiInstance();
     // const {data} = await api.get(`/api/products?category=Dress&color=&size=&minPrice=1&maxPrice=1000000&minDiscount=0&sort=price_low&stock=&pageNumber=0&pageSize=5`)
     const {data} = await api.get(`/api/products?category=${category}&color=${colors}&size=${size}&minPrice=${minPrice}&maxPrice=${maxPrice}&minDiscount=${minDiscount}&stock=${stock}&sort=${sort}&pageNumber=${pageNumber}&pageSize=${pageSize}`)
     // http://localhost:5454/api/products?category=Dress&color=&size=&minPrice=1&maxPrice=1000000&minDiscount=0&sort=price_low&stock=&pageNumber=0&pageSize=5
@@ -47,8 +47,9 @@ export const findproductsByid = (reqData) => async (dispatch) => {
   const {
    productId
   } = reqData;
-  console.log("productId " , productId)
+ 
   try {
+    const api = await createApiInstance();
     const {data} = await api.get(`/api/products/${productId}`)
     console.log(data)
      

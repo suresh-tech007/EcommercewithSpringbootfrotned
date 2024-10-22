@@ -33,7 +33,7 @@ export const login = (userData) =>async (dispatch)=>{
         
     } catch (error) {
         
-        dispatch({type:LOGIN_FAIL , payload:error.response.data.message});
+        dispatch({type:LOGIN_FAIL ,   payload: error.response?.data?.message ? error.response.data.message : error.message });
         
     }
 }
@@ -50,7 +50,7 @@ export const loaduser = (jwt ) =>async (dispatch)=>{
         dispatch({type:GET_USER_SUCCESS , payload:user});
         
     } catch (error) {
-        dispatch({type:GET_USER_FAIL , payload:error.response.data.message});
+        dispatch({type:GET_USER_FAIL ,  payload: error.response?.data?.message ? error.response.data.message : error.message });
         
     }
 }
