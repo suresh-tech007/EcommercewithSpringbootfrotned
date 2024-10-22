@@ -4,7 +4,6 @@ import { API_BASE_URL } from "../../config/apiConfig"
 import { CLEAR_ERROR, GET_USER_FAIL, GET_USER_REQUEST, GET_USER_SUCCESS, LOG_OUT, LOGIN_FAIL, LOGIN_REQUEST, LOGIN_SUCCESS, REGISTER_FAIL, REGISTER_REQUEST, REGISTER_SUCCESS } from "./ActionType";
 
 
-const token = localStorage.getItem("jwt");
 export const register = (userData) =>async (dispatch)=>{
     dispatch({type:REGISTER_REQUEST});
     try {

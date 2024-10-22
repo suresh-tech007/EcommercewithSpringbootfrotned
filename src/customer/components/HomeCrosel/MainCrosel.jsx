@@ -53,7 +53,7 @@ const MainCrosel = () => {
 
 {maincarosedata && maincarosedata.map((item)=> 
     (
-        <img className=' cursor-pointe w-full h-[25rem] ' role='presentation' src={item.image} alt='kal'  />
+        <img className=' cursor-pointe w-full   ' role='presentation' src={item.image} alt='kal'  />
     )
     )}
     </Carousel>

@@ -2,7 +2,6 @@ import React from 'react'
 import MainCrosel from '../../HomeCrosel/MainCrosel'
 import HomeSectioncarosel from '../../HomeSectionCarosel/HomeSectioncarosel'
 import { mens_kurta } from "../../../../data/Men/men_kurta";
-import Footer from '../../footer/Footer';
 
 const HomePage = () => {
   return (
